@@ -1,5 +1,5 @@
 # SB
-Several Initial settings
+Several Initial settings and descriptions
 
 ## File IO using Apache IO
 
