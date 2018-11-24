@@ -7,7 +7,11 @@ import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 
 public class CLI {
-	
+
+	String option1;
+	String option2;
+	boolean help;
+
 	private void run(String[] args) {
 		Options options = createOptions();
 
@@ -16,18 +20,14 @@ public class CLI {
 				printHelp(options);
 				return;
 			}
-			
+
 			/*
-				code ..
+			 * your code here
 			 */
-			
+
 		}
 
 	}
-
-	String type;
-	String concreteSentence;
-	boolean help;
 
 	public static void main(String[] args) {
 		CLI runner = new CLI();
@@ -41,8 +41,8 @@ public class CLI {
 
 			CommandLine cmd = parser.parse(options, args);
 
-			type = cmd.getOptionValue("t").toUpperCase();
-			concreteSentence = cmd.getOptionValue("c");
+			option1 = cmd.getOptionValue("abc").toUpperCase();
+			option2 = cmd.getOptionValue("def");
 			help = cmd.hasOption("h");
 
 		} catch (Exception e) {
@@ -57,11 +57,11 @@ public class CLI {
 		Options options = new Options();
 
 		// add options by using OptionBuilder
-		options.addOption(Option.builder("t").longOpt("type").desc("Set a abstract syntax type(AE, WAE, FWAE...)")
-				.hasArg().argName("Syntax type").required().build());
+		options.addOption(Option.builder("abc").longOpt("option1").desc("option1_description").hasArg()
+				.argName("op1_arg").required().build());
 
-		options.addOption(Option.builder("c").longOpt("sentence").desc("Interpret a sentecne").hasArg()
-				.argName("Sentence").required().build());
+		options.addOption(Option.builder("def").longOpt("option2").desc("option2_Fdescription").hasArg()
+				.argName("op2_arg").required().build());
 
 		// add options by using OptionBuilder
 		options.addOption(Option.builder("h").longOpt("help").desc("Help").build());
@@ -72,6 +72,6 @@ public class CLI {
 	private void printHelp(Options options) {
 		// automatically generate the help statement
 		HelpFormatter formatter = new HelpFormatter();
-		formatter.printHelp("Interpreter", options, true);
+		formatter.printHelp("CLI", options, true);
 	}
 }
