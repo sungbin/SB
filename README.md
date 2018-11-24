@@ -19,3 +19,13 @@ String string = FileUtils.readFileToString(file);
 File file = new File("test.txt");
 
 FileUtils.writeStringToFile(file, string);
+
+## Apache CLI
+
+### build.gradle
+	// https://mvnrepository.com/artifact/commons-cli/commons-cli
+	compile group: 'commons-cli', name: 'commons-cli', version: '1.4'
+	
+### Example
+
+https://github.com/sungbin/SB/blob/master/src/main/java/CLI.java
