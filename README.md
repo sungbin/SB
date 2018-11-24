@@ -10,15 +10,14 @@ Several Initial settings and descriptions
 
 ### read: 
 
-File file = new File("test.txt");
-
-String string = FileUtils.readFileToString(file);
+	File file = new File("test.txt");
+	String lines = FileUtils.readFileToString(file);
+	List<String> lineList = FileUtils.readLines(file);
 
 ### write:
 
-File file = new File("test.txt");
-
-FileUtils.writeStringToFile(file, string);
+	File file = new File("test.txt");
+	FileUtils.writeStringToFile(file, string);
 
 ## Apache CLI
 
